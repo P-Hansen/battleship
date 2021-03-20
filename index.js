@@ -1,3 +1,5 @@
+const setupInput = require('./input');
+
  const board = {};
 
 function Setup() {
