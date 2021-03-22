@@ -6,10 +6,15 @@ const readline = require('readline').createInterface({
 const input = function (board) {
     board.printBoard();
     readline.question(`Your move `, (move) => {
+        if (board[move] === undefined) {
+            console.log("Out of bounds!");
+            readline.close();
+        } else {
         board[move] = "X";
         board.printBoard();
-        console.log(`Hi ${move}!`)
+        console.log(`Fired at space ${move}!`)
         readline.close();
+        };
     });
 };
 
