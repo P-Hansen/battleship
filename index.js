@@ -6,7 +6,7 @@ class Board {
         let rowNames = ['1','2','3','4','5','6','7','8','9','10'];
         for (let col = 0; col < 10; col++) {
             for (let row = 0; row < 10; row++) {
-                this[colNames[col] + [rowNames[row]]] = 0;
+                this[colNames[col] + [rowNames[row]]] = '~';
             }
         }
     }
