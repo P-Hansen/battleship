@@ -7,3 +7,7 @@ td {
     font-weight: bolder;
     font-size: x-large;
 }
+
+.hit {
+    background-color: tomato;
+}

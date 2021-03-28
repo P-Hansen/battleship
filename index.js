@@ -1,4 +1,5 @@
-const input = require('./input');
+//const input = require('./input');
+//const userInput = require('./clicks');
 
 class Board {
     constructor() {
@@ -35,4 +36,8 @@ class Board {
 
 let playerBoard = new Board();
 //console.log(playerBoard);
-input(playerBoard);
+//input(playerBoard);
+
+$(document).ready(function() {
+    userInput();
+});
