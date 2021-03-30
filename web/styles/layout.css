@@ -11,3 +11,8 @@ td {
 .hit {
     background-color: tomato;
 }
+
+.miss{
+    background-color: cornsilk;
+    color: rgb(56, 189, 233);
+}

@@ -37,6 +37,7 @@ let playerBoard = new Board();
 //console.log(playerBoard);
 //input(playerBoard);
 
+playerBoard["a1"] = 'S';
 $(document).ready(function() {
-    userInput();
+    userInput(playerBoard);
 });
