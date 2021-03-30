@@ -13,7 +13,7 @@ const userInput = function(board) {
     $(this).text(board[col+row]);
     // console.log("Col?", col);
     // console.log("Row?", row);
-    console.log("in the object", board[col+row]);
+    //console.log("in the object", board[col+row]);
     });
 
     //$("td").text("~");

@@ -16,3 +16,8 @@ td {
     background-color: cornsilk;
     color: rgb(56, 189, 233);
 }
+
+td:hover {
+    /* cursor: crosshair; */
+    cursor: url(C:/Users/Phil/lighthouse/battleship/images/passenger_ship.png), auto;
+}
