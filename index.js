@@ -48,7 +48,7 @@ playerBoard["f4"] = 'I';
 playerBoard["g4"] = 'L';
 playerBoard["h4"] = 'O';
 playerBoard["i4"] = 'R';
-$('selector').css({'cursor': 'crosshair'});//'url(/cursors/customMoveCursor.cur), default'});
+
 $(document).ready(function() {
     userInput(playerBoard);
 });

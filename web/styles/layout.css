@@ -17,7 +17,15 @@ td {
     color: rgb(56, 189, 233);
 }
 
+.place {
+    background-color: gold;
+}
+
+.placed {
+    background-color: darkgreen;
+}
+
 td:hover {
     /* cursor: crosshair; */
-    cursor: url(C:/Users/Phil/lighthouse/battleship/images/passenger_ship.png), auto;
+    /* cursor: url(C:/Users/Phil/lighthouse/battleship/images/passenger_ship.png), auto; */
 }
