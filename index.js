@@ -1,5 +1,6 @@
 //const input = require('./input');
 //const userInput = require('./clicks');
+//const randomPlacement = require("./placeEnemies");
 
 class Board {
     constructor() {
@@ -37,18 +38,9 @@ let playerBoard = new Board();
 //console.log(playerBoard);
 //input(playerBoard);
 
-playerBoard["f2"] = 'S';
-playerBoard["f3"] = 'H';
-playerBoard["f4"] = 'I';
-playerBoard["f5"] = 'P';
 
-playerBoard["d4"] = 'S';
-playerBoard["e4"] = 'A';
-playerBoard["f4"] = 'I';
-playerBoard["g4"] = 'L';
-playerBoard["h4"] = 'O';
-playerBoard["i4"] = 'R';
 
 $(document).ready(function() {
     userInput(playerBoard);
+    randomPlacement(playerBoard);
 });

@@ -7,17 +7,22 @@ const userInput = function(board) {
     if (gameState === "place3") {
       let col = $(this).attr("class")[0];
       let row = $(this).parent().attr("class");
-      board[col+row] = 'R';
-      let col2 = $(this).next().attr("class")[0];
-      board[col2+row] = 'O';
+      
       let col3 = $(this).next().next().attr("class")[0];
-      board[col3+row] = 'W';
-      $(this).removeClass("place");
-      $(this).next().removeClass("place");
-      $(this).next().next().removeClass("place");
+      board[col3+row] = 'B';
+      $(this).next().next().text('B');
+
+      board[col+row] = 'S';
+      $(this).text('S');
+      
+      let col2 = $(this).next().attr("class")[0];
+      board[col2+row] = 'U';
+      $(this).next().text('U');
+
       $(this).addClass("placed");
       $(this).next().addClass("placed");
       $(this).next().next().addClass("placed");
+
       gameState = null;
     }
   });
