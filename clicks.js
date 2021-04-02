@@ -16,8 +16,8 @@ const userInput = function(board) {
       $(this).next().removeClass("place");
       $(this).next().next().removeClass("place");
       $(this).addClass("placed");
-       $(this).next().addClass("placed");
-       $(this).next().next().addClass("placed");
+      $(this).next().addClass("placed");
+      $(this).next().next().addClass("placed");
       gameState = null;
     }
   });
