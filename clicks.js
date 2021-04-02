@@ -2,19 +2,9 @@
 const userInput = function(board) {
   let gameState = null;
   console.log("I'm listening")
-  //click handler for grid during the game
-  $("td").on("click", function(event) {
-    if (gameState === null) {
-      let col = $(this).attr("class")[0];
-      let row = $(this).parent().attr("class");
-      if (board[col+row] === '~') {
-        $(this).addClass("miss");
-      } else {
-        $(this).addClass("hit");
-      }
-      $(this).text(board[col+row]);
-      //click handler when placing ship
-    } else if (gameState === "place3") {
+  //click handler for player grid during the game
+  $(".playerBoard td").on("click", function(event) {
+    if (gameState === "place3") {
       let col = $(this).attr("class")[0];
       let row = $(this).parent().attr("class");
       board[col+row] = 'R';
@@ -32,7 +22,7 @@ const userInput = function(board) {
     }
   });
 
-    $("td").on("mouseenter", function(event) {
+    $(".playerBoard td").on("mouseenter", function(event) {
       if (gameState === "place3") {
         $(this).addClass("place");
         $(this).next().addClass("place");
@@ -48,7 +38,7 @@ const userInput = function(board) {
       }
     });
 
-    $("td").on("mouseleave", function(event) {
+    $(".playerBoard td").on("mouseleave", function(event) {
       if (gameState === "place3") {
         $(this).removeClass("place");
         $(this).next().removeClass("place");
@@ -74,6 +64,20 @@ const userInput = function(board) {
     console.log("placing 4 letter word");
     $(this).remove();
     });
+/////////////////////////////////////////////////////////////////////
+  //click handler for enemy grid during the game
+  $(".enemyBoard td").on("click", function(event) {
+    if (gameState === null) {
+      let col = $(this).attr("class")[0];
+      let row = $(this).parent().attr("class");
+      if (board[col+row] === '~') {
+        $(this).addClass("miss");
+      } else {
+        $(this).addClass("hit");
+      }
+      $(this).text(board[col+row]);
+    }
+  });
 
 };
 
