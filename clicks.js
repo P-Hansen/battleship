@@ -2,6 +2,12 @@
 const userInput = function(board) {
   let gameState = null;
   console.log("I'm listening")
+  const twoWord = "OI";
+  const threeWord = "SUB";
+  const fourWord = "SHIP";
+  const fiveWord = "BILGE";
+  const sixWord = "ANCHOR";
+
   //click handler for player grid during the game
   $(".playerBoard td").on("click", function(event) {
     if (gameState === "place3") {
@@ -9,16 +15,16 @@ const userInput = function(board) {
       let row = $(this).parent().attr("class");
       
       let col3 = $(this).next().next().attr("class")[0];
-      board[col3+row] = 'B';
-      $(this).next().next().text('B');
-
-      board[col+row] = 'S';
-      $(this).text('S');
+      board[col3+row] = threeWord[2];
+      $(this).next().next().text(threeWord[2]);
       
       let col2 = $(this).next().attr("class")[0];
-      board[col2+row] = 'U';
-      $(this).next().text('U');
+      board[col2+row] = threeWord[1];
+      $(this).next().text(threeWord[1]);
 
+      board[col+row] = threeWord[0];
+      $(this).text(threeWord[0]);
+      
       $(this).addClass("placed");
       $(this).next().addClass("placed");
       $(this).next().next().addClass("placed");

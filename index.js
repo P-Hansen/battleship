@@ -35,9 +35,6 @@ class Board {
 };
 
 let playerBoard = new Board();
-//console.log(playerBoard);
-//input(playerBoard);
-
 
 
 $(document).ready(function() {
