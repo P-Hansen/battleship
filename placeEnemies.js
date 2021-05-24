@@ -21,11 +21,34 @@ const randomPlacement = function(board) {
             horizontalPlacement(word);
         }
     }
-    horizontalPlacement(sixWord);
-    horizontalPlacement(fiveWord);
-    horizontalPlacement(fourWord);
-    horizontalPlacement(threeWord);
-    horizontalPlacement(twoWord);
+
+    const verticalPlacement = function(word) {
+        const leagalLetter = "abcdefghij";
+        let randIndex = Math.floor(Math.random() * 10);
+        const randomLetter = leagalLetter[randIndex];
+        const randomNum = Math.floor(Math.random() * 10) + 1;
+        console.log("random start:",randomLetter, randomNum);
+        if ((board[leagalLetter[randIndex+word.length]+(randomNum)] === '~') & (board[randomLetter + randomNum] === '~')) {
+            console.log("good to go!");
+            for(let i = 0; i < word.length; i++) {
+                board[leagalLetter[randIndex+i]+(randomNum)] = word[i];
+                console.log(word[i]);
+            }
+        } else {
+            console.log("let's try that again")
+            verticalPlacement(word);
+        }
+    }
+        verticalPlacement(sixWord);
+        verticalPlacement(fiveWord);
+        verticalPlacement(fourWord);
+        verticalPlacement(threeWord);
+        verticalPlacement(twoWord);
+    // horizontalPlacement(sixWord);
+    // horizontalPlacement(fiveWord);
+    // horizontalPlacement(fourWord);
+    // horizontalPlacement(threeWord);
+    // horizontalPlacement(twoWord);
 }
 
 //module.exports = randomPlacement;
