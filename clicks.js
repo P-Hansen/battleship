@@ -30,6 +30,21 @@ const userInput = function(board) {
       $(this).next().next().addClass("placed");
 
       gameState = null;
+    } else if (gameState === "place2") {
+      let col = $(this).attr("class")[0];
+      let row = $(this).parent().attr("class");
+      
+      let col2 = $(this).next().attr("class")[0];
+      board[col2+row] = twoWord[1];
+      $(this).next().text(twoWord[1]);
+      
+      board[col+row] = twoWord[0];
+      $(this).text(twoWord[0]);
+      
+      $(this).addClass("placed");
+      $(this).next().addClass("placed");
+
+      gameState = null;
     }
   });
 
@@ -38,6 +53,9 @@ const userInput = function(board) {
         $(this).addClass("place");
         $(this).next().addClass("place");
         $(this).next().next().addClass("place");
+      } else if (gameState === "place2") {
+        $(this).addClass("place");
+        $(this).next().addClass("place");
       } else if (gameState === "place4") {
         $(this).addClass("place");
         let colClass = $(this).attr("class")[0];
@@ -54,12 +72,22 @@ const userInput = function(board) {
         $(this).removeClass("place");
         $(this).next().removeClass("place");
         $(this).next().next().removeClass("place");
-      } else if (gameState === "place4") {
+      } else if (gameState === "place2") {
+        $(this).removeClass("place");
+        $(this).next().removeClass("place");
+     } else if (gameState === "place4") {
         $(this).removeClass("place");
         $(this).next().removeClass("place");
         $(this).next().next().removeClass("place");
       }
 
+    });
+
+  //click 2 letter word
+  $("#2-letter").on("click", function(event) {
+    gameState = "place2";
+    console.log("placing 2 letter word");
+    $(this).remove();
     });
 
   //click 3 letter word
