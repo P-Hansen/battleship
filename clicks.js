@@ -244,7 +244,24 @@ const userInput = function(board, enemyBoard) {
       }
       $(this).text(enemyBoard[col+row]);
     }
+    enemyFire();
   });
+
+  function enemyFire() {
+    const leagalLetter = "abcdefghij";
+    const col = leagalLetter[Math.floor(Math.random() * 10)];
+    const row = Math.floor(Math.random() * 10) + 1;
+    // $(".playerBoard").find(`.${row}`).find(`.${col}`).addClass("miss")
+    if (board[col+row] === '~') {
+      $(".playerBoard").find(`.${row}`).find(`.${col}`).addClass("miss")
+    } else {
+      $(".playerBoard").find(`.${row}`).find(`.${col}`).removeClass("placed")
+      $(".playerBoard").find(`.${row}`).find(`.${col}`).removeClass("place")
+      $(".playerBoard").find(`.${row}`).find(`.${col}`).addClass("hit")
+    }
+    $(".playerBoard").find(`.${row}`).find(`.${col}`).text(board[col+row]);
+  }
+  
 
 };
 
