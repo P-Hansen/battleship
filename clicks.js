@@ -45,6 +45,31 @@ const userInput = function(board) {
       $(this).next().addClass("placed");
 
       gameState = null;
+    } else if (gameState === "place4") {
+      let col = $(this).attr("class")[0];
+      let row = $(this).parent().attr("class");
+      
+      let col4 = $(this).next().attr("class")[0];
+      board[col4+row] = fourWord[3];
+      $(this).next().next().next().text(fourWord[3]);
+
+      let col3 = $(this).next().next().attr("class")[0];
+      board[col3+row] = fourWord[2];
+      $(this).next().next().text(fourWord[2]);
+
+      let col2 = $(this).next().attr("class")[0];
+      board[col2+row] = fourWord[1];
+      $(this).next().text(fourWord[1]);
+      
+      board[col+row] = fourWord[0];
+      $(this).text(fourWord[0]);
+      
+      $(this).addClass("placed");
+      $(this).next().addClass("placed");
+      $(this).next().next().addClass("placed");
+      $(this).next().next().next().addClass("placed");
+
+      gameState = null;
     }
   });
 
@@ -58,12 +83,15 @@ const userInput = function(board) {
         $(this).next().addClass("place");
       } else if (gameState === "place4") {
         $(this).addClass("place");
-        let colClass = $(this).attr("class")[0];
-        let rowClass = $(this).parent().attr("class");
-        console.log("col?", colClass);
-        console.log("row?", rowClass);
+        $(this).next().addClass("place");
+        $(this).next().next().addClass("place");
+        $(this).next().next().next().addClass("place");
+        // let colClass = $(this).attr("class")[0];
+        // let rowClass = $(this).parent().attr("class");
+        // console.log("col?", colClass);
+        // console.log("row?", rowClass);
         //
-        $(this).next(colClass).next(colClass).addClass("place");
+        // $(this).next(colClass).next(colClass).addClass("place");
       }
     });
 
@@ -79,6 +107,7 @@ const userInput = function(board) {
         $(this).removeClass("place");
         $(this).next().removeClass("place");
         $(this).next().next().removeClass("place");
+        $(this).next().next().next().removeClass("place");
       }
 
     });
