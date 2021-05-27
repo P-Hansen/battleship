@@ -35,9 +35,9 @@ class Board {
 };
 
 let playerBoard = new Board();
-
+let enemyBoard = new Board();
 
 $(document).ready(function() {
-    userInput(playerBoard);
-    randomPlacement(playerBoard);
+    userInput(playerBoard, enemyBoard);
+    randomPlacement(enemyBoard);
 });

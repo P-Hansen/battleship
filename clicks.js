@@ -1,5 +1,5 @@
 
-const userInput = function(board) {
+const userInput = function(board, enemyBoard) {
   let gameState = null;
   console.log("I'm listening")
   const twoWord = "OI";
@@ -237,12 +237,12 @@ const userInput = function(board) {
     if (gameState === null) {
       let col = $(this).attr("class")[0];
       let row = $(this).parent().attr("class");
-      if (board[col+row] === '~') {
+      if (enemyBoard[col+row] === '~') {
         $(this).addClass("miss");
       } else {
         $(this).addClass("hit");
       }
-      $(this).text(board[col+row]);
+      $(this).text(enemyBoard[col+row]);
     }
   });
 
