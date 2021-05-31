@@ -248,10 +248,12 @@ const userInput = function(board, enemyBoard) {
   });
 
   function enemyFire() {
-    const leagalLetter = "abcdefghij";
-    const col = leagalLetter[Math.floor(Math.random() * 10)];
-    const row = Math.floor(Math.random() * 10) + 1;
-    // $(".playerBoard").find(`.${row}`).find(`.${col}`).addClass("miss")
+    // const leagalLetter = "abcdefghij";
+    // const col = leagalLetter[Math.floor(Math.random() * 10)];
+    // const row = Math.floor(Math.random() * 10) + 1;
+    // let col = '';
+    // let row = '';
+    const [col, row] = enemyFireLocation();
     if (board[col+row] === '~') {
       $(".playerBoard").find(`.${row}`).find(`.${col}`).addClass("miss")
     } else {
