@@ -247,10 +247,8 @@ const userInput = function(board, enemyBoard) {
     enemyFire();
   });
 
+  //enemy shots at player grid
   function enemyFire() {
-    // const leagalLetter = "abcdefghij";
-    // const col = leagalLetter[Math.floor(Math.random() * 10)];
-    // const row = Math.floor(Math.random() * 10) + 1;
     const [col, row] = enemyFireLocation();
     if (board[col+row] === '~') {
       $(".playerBoard").find(`.${row}`).find(`.${col}`).addClass("miss")
@@ -258,6 +256,7 @@ const userInput = function(board, enemyBoard) {
       $(".playerBoard").find(`.${row}`).find(`.${col}`).removeClass("placed")
       $(".playerBoard").find(`.${row}`).find(`.${col}`).removeClass("place")
       $(".playerBoard").find(`.${row}`).find(`.${col}`).addClass("hit")
+      //adds adjacent squares as next targets
       addTargets([col, row]);
     }
     $(".playerBoard").find(`.${row}`).find(`.${col}`).text(board[col+row]);

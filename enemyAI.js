@@ -30,14 +30,14 @@ const checker = ([a,b], [c,d]) => {
     };
 };
 
-//gives back random location
+//gives back next target from array, or else random location
 const randomLocation = () => {
     let col = '';
     let row = '';
     if (nextTargets.length === 0) {
-    const leagalLetter = "abcdefghij";
-    col = leagalLetter[Math.floor(Math.random() * 10)];
-    row = Math.floor(Math.random() * 10) + 1;
+        const leagalLetter = "abcdefghij";
+        col = leagalLetter[Math.floor(Math.random() * 10)];
+        row = Math.floor(Math.random() * 10) + 1;
     } else {
         [col, row] = nextTargets.pop();
     };
@@ -45,19 +45,20 @@ const randomLocation = () => {
     return [col, row];
 }
 
+//adds adjacent squars to next targets array on hit
 const addTargets = ([col, row]) => {
     const leagalLetter = "abcdefghij";
-    const letterIndex = leagalLetter.indexOf(col);
-    if (letterIndex+1 <= 9) {
-        nextTargets.push([leagalLetter[letterIndex+1], row]);
-    }
-    if (letterIndex-1 >= 0) {
-        nextTargets.push([leagalLetter[letterIndex-1], row]);
+    const index = leagalLetter.indexOf(col);
+    if (index+1 <= 9) {
+        nextTargets.push([leagalLetter[index+1], row]);
+    };
+    if (index-1 >= 0) {
+        nextTargets.push([leagalLetter[index-1], row]);
     };
     if (row+1 <= 10) {
         nextTargets.push([col, row+1]);
-    }
+    };
     if (row-1 >= 1) {
         nextTargets.push([col, row-1]);
-    }
+    };
 }
