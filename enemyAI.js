@@ -48,10 +48,12 @@ const randomLocation = () => {
 const addTargets = ([col, row]) => {
     const leagalLetter = "abcdefghij";
     const letterIndex = leagalLetter.indexOf(col);
-
-    nextTargets.push([leagalLetter[letterIndex+1], row]);
-    nextTargets.push([leagalLetter[letterIndex-1], row]);
-
+    if (letterIndex+1 <= 9) {
+        nextTargets.push([leagalLetter[letterIndex+1], row]);
+    }
+    if (letterIndex-1 >= 0) {
+        nextTargets.push([leagalLetter[letterIndex-1], row]);
+    };
     if (row+1 <= 10) {
         nextTargets.push([col, row+1]);
     }
