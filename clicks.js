@@ -258,6 +258,7 @@ const userInput = function(board, enemyBoard) {
       $(".playerBoard").find(`.${row}`).find(`.${col}`).removeClass("placed")
       $(".playerBoard").find(`.${row}`).find(`.${col}`).removeClass("place")
       $(".playerBoard").find(`.${row}`).find(`.${col}`).addClass("hit")
+      addTargets([col, row]);
     }
     $(".playerBoard").find(`.${row}`).find(`.${col}`).text(board[col+row]);
   }

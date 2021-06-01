@@ -40,7 +40,22 @@ const randomLocation = () => {
     row = Math.floor(Math.random() * 10) + 1;
     } else {
         [col, row] = nextTargets.pop();
-    }
+    };
 
     return [col, row];
+}
+
+const addTargets = ([col, row]) => {
+    const leagalLetter = "abcdefghij";
+    const letterIndex = leagalLetter.indexOf(col);
+
+    nextTargets.push([leagalLetter[letterIndex+1], row]);
+    nextTargets.push([leagalLetter[letterIndex-1], row]);
+
+    if (row+1 <= 10) {
+        nextTargets.push([col, row+1]);
+    }
+    if (row-1 >= 1) {
+        nextTargets.push([col, row-1]);
+    }
 }
