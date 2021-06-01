@@ -1,4 +1,5 @@
 let usedCoordinates = [];
+let nextTargets = [];
 //returns the row and col of the next enemy shot
 const enemyFireLocation = () => {
     let flag = true;
@@ -31,9 +32,15 @@ const checker = ([a,b], [c,d]) => {
 
 //gives back random location
 const randomLocation = () => {
+    let col = '';
+    let row = '';
+    if (nextTargets.length === 0) {
     const leagalLetter = "abcdefghij";
-    const col = leagalLetter[Math.floor(Math.random() * 10)];
-    const row = Math.floor(Math.random() * 10) + 1;
+    col = leagalLetter[Math.floor(Math.random() * 10)];
+    row = Math.floor(Math.random() * 10) + 1;
+    } else {
+        [col, row] = nextTargets.pop();
+    }
 
     return [col, row];
 }
