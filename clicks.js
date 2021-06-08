@@ -16,6 +16,8 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
 
   //click handler for player grid during the game
   $(".playerBoard td").on("click", function(event) {
+    let myClass = $(this).attr("class")[0];
+    //horizontal 3 letter word placement
     if (gameState === "place3" &
       ($(this).html() === threeWord[0] || $(this).html() === "") &
       ($(this).next().html() === threeWord[1] || $(this).next().html() === "") &
@@ -41,6 +43,29 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).next().next().addClass("placed");
 
       gameState = null;
+      //vertical 3 letter word placement
+    } else if (gameState === "place3vert" &
+      ($(this).html() === threeWord[0] || $(this).html() === "") &
+      ($(this).closest('tr').next().find(`.${myClass}`).html() === threeWord[1] || $(this).closest('tr').next().find(`.${myClass}`).html() === "") &
+      ($(this).closest('tr').next().next().find(`.${myClass}`).html() === threeWord[2] || $(this).closest('tr').next().next().find(`.${myClass}`).html() === "")
+    ) {
+      let col = myClass;
+      let row = $(this).parent().attr("class");
+
+      board[col+(row+2)] = threeWord[2];
+      $(this).closest('tr').next().next().find(`.${myClass}`).text(threeWord[2]);
+      
+      board[col+(row+1)] = threeWord[1];
+      $(this).closest('tr').next().find(`.${myClass}`).text(threeWord[1]);
+
+      board[col+row] = threeWord[0];
+      $(this).text(threeWord[0]);
+      
+      $(this).addClass("placed");
+      $(this).closest('tr').next().find(`.${myClass}`).addClass("placed");
+      $(this).closest('tr').next().next().find(`.${myClass}`).addClass("placed");
+      gameState = null;
+
     } else if (gameState === "place2" &
       ($(this).html() === twoWord[0] || $(this).html() === "") &
       ($(this).next().html() === twoWord[1] || $(this).next().html() === "")
@@ -170,6 +195,7 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
     }
   });
 
+    //adds yellow when you have ship selected and enter a square
     $(".playerBoard td").on("mouseenter", function(event) {
       if (gameState === "place3") {
         $(this).addClass("place");
@@ -205,40 +231,9 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       }
     });
 
+    //removes yellow when you have a ship selected and leave a square
     $(".playerBoard td").on("mouseleave", function(event) {
       $("td").removeClass("place");
-    //   if (gameState === "place3") {
-    //     $(this).removeClass("place");
-    //     $(this).next().removeClass("place");
-    //     $(this).next().next().removeClass("place");
-    //   } else if (gameState === "place3vert") {
-    //     let myClass = $(this).attr("class");
-    //     $(this).removeClass("place");
-    //     $(this).closest('tr').next().find(`.${myClass[0]}`).removeClass("place");
-    //     $(this).closest('tr').next().next().find(`.${myClass[0]}`).removeClass("place");
-    //   } else if (gameState === "place2") {
-    //     $(this).removeClass("place");
-    //     $(this).next().removeClass("place");
-    //  } else if (gameState === "place4") {
-    //     $(this).removeClass("place");
-    //     $(this).next().removeClass("place");
-    //     $(this).next().next().removeClass("place");
-    //     $(this).next().next().next().removeClass("place");
-    //   } else if (gameState === "place5") {
-    //     $(this).removeClass("place");
-    //     $(this).next().removeClass("place");
-    //     $(this).next().next().removeClass("place");
-    //     $(this).next().next().next().removeClass("place");
-    //     $(this).next().next().next().next().removeClass("place");
-    //   } else if (gameState === "place6") {
-    //     $(this).removeClass("place");
-    //     $(this).next().removeClass("place");
-    //     $(this).next().next().removeClass("place");
-    //     $(this).next().next().next().removeClass("place");
-    //     $(this).next().next().next().next().removeClass("place");
-    //     $(this).next().next().next().next().next().removeClass("place");
-    //   }
-
     });
 
   //click 2 letter word
