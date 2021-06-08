@@ -37,7 +37,10 @@ class Board {
 let playerBoard = new Board();
 let enemyBoard = new Board();
 
+const threeWords = ["SEA", "SUB", "AFT", "BOW", "YAW"]
+const threeWord = threeWords[Math.floor(Math.random() * threeWords.length)];
+
 $(document).ready(function() {
-    userInput(playerBoard, enemyBoard);
+    userInput(playerBoard, enemyBoard, "OI", threeWord);
     randomPlacement(enemyBoard);
 });
