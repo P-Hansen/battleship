@@ -1,10 +1,10 @@
 
-const userInput = function(board, enemyBoard, twoWord, threeWord) {
+const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord) {
   let gameState = null;
   console.log("I'm listening")
   // const twoWord = "OI";
   // const threeWord = "SUB";
-  const fourWord = "SHIP";
+  // const fourWord = "SHIP";
   const fiveWord = "BILGE";
   const sixWord = "ANCHOR";
 

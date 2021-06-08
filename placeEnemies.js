@@ -1,7 +1,7 @@
-const randomPlacement = function(board) {
-    const twoWord = "OI";
-    const threeWord = "SUB";
-    const fourWord = "SHIP";
+const randomPlacement = function(board, twoWord, threeWord, fourWord) {
+    // const twoWord = "OI";
+    // const threeWord = "SUB";
+    // const fourWord = "SHIP";
     const fiveWord = "BILGE";
     const sixWord = "ANCHOR";
 
