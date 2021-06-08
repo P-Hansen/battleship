@@ -1,9 +1,9 @@
-const randomPlacement = function(board, twoWord, threeWord, fourWord) {
+const randomPlacement = function(board, twoWord, threeWord, fourWord, fiveWord, sixWord) {
     // const twoWord = "OI";
     // const threeWord = "SUB";
     // const fourWord = "SHIP";
-    const fiveWord = "BILGE";
-    const sixWord = "ANCHOR";
+    // const fiveWord = "BILGE";
+    // const sixWord = "ANCHOR";
 
     //check if the space for the word is legal
     const spaceCheck = function(word, space) {

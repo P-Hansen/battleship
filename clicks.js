@@ -1,12 +1,12 @@
 
-const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord) {
+const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, fiveWord, sixWord) {
   let gameState = null;
   console.log("I'm listening")
   // const twoWord = "OI";
   // const threeWord = "SUB";
   // const fourWord = "SHIP";
-  const fiveWord = "BILGE";
-  const sixWord = "ANCHOR";
+  // const fiveWord = "BILGE";
+  // const sixWord = "ANCHOR";
 
   $("#2-letter").html(`<table id="2-letter"><tr><td>${twoWord[0]}</td><td>${twoWord[1]}</td></tr></table>`);
   $("#3-letter").html(`<table id="3-letter"><tr><td>${threeWord[0]}</td><td>${threeWord[1]}</td><td>${threeWord[2]}</td></tr></table>`);

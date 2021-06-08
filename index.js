@@ -37,13 +37,19 @@ class Board {
 let playerBoard = new Board();
 let enemyBoard = new Board();
 
-const threeWords = ["SEA", "SUB", "AFT", "BOW", "YAW", "AYE"]
+const threeWords = ["SEA", "SUB", "AFT", "BOW", "YAW", "AYE", "FIN", "OAR", "RUM", "NET"]
 const threeWord = threeWords[Math.floor(Math.random() * threeWords.length)];
 
-const fourWords = ["SHIP", "WAVE", "HELM", "HOLD", "HULL", "KEEL", "KNOT", "MAST", "MATE", "PORT", "REEF", "WAKE", "SAIL", "PORT", "AHOY", "BUOY"]
+const fourWords = ["SHIP", "WAVE", "HELM", "HOLD", "HULL", "KEEL", "KNOT", "MAST", "MATE", "PORT", "REEF", "WAKE", "SAIL", "PORT", "AHOY", "BUOY", "DOCK", "WIND", "BAIL", "BOAT", "BOOM", "BRIG", "CRAB", "CREW", "DECK", "FISH", "FLAG", "GALE", "GAFF", "GROG", "KNOT", "MESS", "MOOR", "PIER", "RAFT", "TIDE", "SLIP", "SURF", "SWIM"]
 const fourWord = fourWords[Math.floor(Math.random() * fourWords.length)];
 
+const fiveWords = ["BILGE", "ABOUT", "AVAST", "BELAY", "HATCH", "SHEET", "STERN", "WINCH", "OCEAN", "AHEAD", "BARGE", "BOSUN", "SLOOP", "CARGO", "CABIN", "FLOAT", "HITCH", "COAST", "DEPTH", "DRINK", "FERRY", "FLARE", "HEAVE", "JETTY", "PLANK", "NAVAL", "WATER", "WHALE", "WHARF", "YACHT", "SHEER", "SHELL", "WRECK", "SHOAL", "SIREN", "SKIFF"]
+const fiveWord = fiveWords[Math.floor(Math.random() * fiveWords.length)];
+
+const sixWords = ["ANCHOR", "BRIDGE", "COURSE", "GALLEY", "LEAGUE", "RUDDER", "ABOARD", "ADRIFT", "AFLOAT", "ASHORE", "BATTEN", "BEACON", "CONVOY", "CRUISE", "ENSIGN", "ISLAND", "CANNON", "MARINA", "SAILOR", "PIRATE", "VOYAGE", "SEAMAN"]
+const sixWord = sixWords[Math.floor(Math.random() * sixWords.length)];
+
 $(document).ready(function() {
-    userInput(playerBoard, enemyBoard, "OI", threeWord, fourWord);
-    randomPlacement(enemyBoard, "OI", threeWord, fourWord);
+    userInput(playerBoard, enemyBoard, "OI", threeWord, fourWord, fiveWord, sixWord);
+    randomPlacement(enemyBoard, "OI", threeWord, fourWord, fiveWord, sixWord);
 });
