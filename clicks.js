@@ -9,6 +9,7 @@ const userInput = function(board, enemyBoard) {
   const sixWord = "ANCHOR";
 
   $("#2-letter").html(`<table id="2-letter"><tr><td>${twoWord[0]}</td><td>${twoWord[1]}</td></tr></table>`);
+  $("#3-letter").html(`<table id="3-letter"><tr><td>${threeWord[0]}</td><td>${threeWord[1]}</td><td>${threeWord[2]}</td></tr></table>`);
 
   //click handler for player grid during the game
   $(".playerBoard td").on("click", function(event) {
