@@ -175,6 +175,12 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
         $(this).addClass("place");
         $(this).next().addClass("place");
         $(this).next().next().addClass("place");
+      } else if (gameState === "place3vert") {
+        let myClass = $(this).attr("class");
+        console.log("my Class: ",myClass);
+        $(this).addClass("place");
+        $(this).closest('tr').next().find(`.${myClass}`).addClass("place");
+        $(this).closest('tr').next().next().find(`.${myClass}`).addClass("place");
       } else if (gameState === "place2") {
         $(this).addClass("place");
         $(this).next().addClass("place");
@@ -200,32 +206,38 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
     });
 
     $(".playerBoard td").on("mouseleave", function(event) {
-      if (gameState === "place3") {
-        $(this).removeClass("place");
-        $(this).next().removeClass("place");
-        $(this).next().next().removeClass("place");
-      } else if (gameState === "place2") {
-        $(this).removeClass("place");
-        $(this).next().removeClass("place");
-     } else if (gameState === "place4") {
-        $(this).removeClass("place");
-        $(this).next().removeClass("place");
-        $(this).next().next().removeClass("place");
-        $(this).next().next().next().removeClass("place");
-      } else if (gameState === "place5") {
-        $(this).removeClass("place");
-        $(this).next().removeClass("place");
-        $(this).next().next().removeClass("place");
-        $(this).next().next().next().removeClass("place");
-        $(this).next().next().next().next().removeClass("place");
-      } else if (gameState === "place6") {
-        $(this).removeClass("place");
-        $(this).next().removeClass("place");
-        $(this).next().next().removeClass("place");
-        $(this).next().next().next().removeClass("place");
-        $(this).next().next().next().next().removeClass("place");
-        $(this).next().next().next().next().next().removeClass("place");
-      }
+      $("td").removeClass("place");
+    //   if (gameState === "place3") {
+    //     $(this).removeClass("place");
+    //     $(this).next().removeClass("place");
+    //     $(this).next().next().removeClass("place");
+    //   } else if (gameState === "place3vert") {
+    //     let myClass = $(this).attr("class");
+    //     $(this).removeClass("place");
+    //     $(this).closest('tr').next().find(`.${myClass[0]}`).removeClass("place");
+    //     $(this).closest('tr').next().next().find(`.${myClass[0]}`).removeClass("place");
+    //   } else if (gameState === "place2") {
+    //     $(this).removeClass("place");
+    //     $(this).next().removeClass("place");
+    //  } else if (gameState === "place4") {
+    //     $(this).removeClass("place");
+    //     $(this).next().removeClass("place");
+    //     $(this).next().next().removeClass("place");
+    //     $(this).next().next().next().removeClass("place");
+    //   } else if (gameState === "place5") {
+    //     $(this).removeClass("place");
+    //     $(this).next().removeClass("place");
+    //     $(this).next().next().removeClass("place");
+    //     $(this).next().next().next().removeClass("place");
+    //     $(this).next().next().next().next().removeClass("place");
+    //   } else if (gameState === "place6") {
+    //     $(this).removeClass("place");
+    //     $(this).next().removeClass("place");
+    //     $(this).next().next().removeClass("place");
+    //     $(this).next().next().next().removeClass("place");
+    //     $(this).next().next().next().next().removeClass("place");
+    //     $(this).next().next().next().next().next().removeClass("place");
+    //   }
 
     });
 
@@ -263,6 +275,27 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
     console.log("placing 6 letter word");
     $(this).remove();
     });
+
+  document.body.onkeyup = function(e){
+    if(e.key === ' '){
+        console.log("space!");
+    }
+  }
+  
+$(".playerBoard").bind("wheel", (event)=>{
+  event.preventDefault();
+  if (gameState === "place3") {
+    gameState = "place3vert";
+    console.log(gameState);
+    $("td").removeClass("place");
+  } else if (gameState === "place3vert") {
+    gameState = "place3";
+    console.log(gameState);
+    $("td").removeClass("place");
+  }
+});
+
+
 /////////////////////////////////////////////////////////////////////
   //click handler for enemy grid during the game
   $(".enemyBoard td").on("click", function(event) {
