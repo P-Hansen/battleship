@@ -234,7 +234,12 @@ const userInput = function(board, enemyBoard) {
 /////////////////////////////////////////////////////////////////////
   //click handler for enemy grid during the game
   $(".enemyBoard td").on("click", function(event) {
-    if (gameState === null) {
+    if (gameState === null &
+      !$("#2-letter").length &
+      !$("#3-letter").length &
+      !$("#4-letter").length &
+      !$("#5-letter").length &
+      !$("#6-letter").length) {
       let col = $(this).attr("class")[0];
       let row = $(this).parent().attr("class");
       if (enemyBoard[col+row] === '~') {
@@ -243,8 +248,8 @@ const userInput = function(board, enemyBoard) {
         $(this).addClass("hit");
       }
       $(this).text(enemyBoard[col+row]);
+      enemyFire();
     }
-    enemyFire();
   });
 
   //enemy shots at player grid

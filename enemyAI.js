@@ -5,7 +5,7 @@ const enemyFireLocation = () => {
     let flag = true;
     let col = '';
     let row = '';
-    //checks random location, and if already fired at picks a new random one
+    //checks random location, and if already fired at picks a new one
     while(flag) {
         flag = false;
         [col, row] = randomLocation();
