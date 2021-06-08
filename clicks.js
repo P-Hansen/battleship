@@ -197,30 +197,43 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
 
     //adds yellow when you have ship selected and enter a square
     $(".playerBoard td").on("mouseenter", function(event) {
+      let myClass = $(this).attr("class");
       if (gameState === "place3") {
         $(this).addClass("place");
         $(this).next().addClass("place");
         $(this).next().next().addClass("place");
       } else if (gameState === "place3vert") {
-        let myClass = $(this).attr("class");
-        console.log("my Class: ",myClass);
         $(this).addClass("place");
         $(this).closest('tr').next().find(`.${myClass}`).addClass("place");
         $(this).closest('tr').next().next().find(`.${myClass}`).addClass("place");
       } else if (gameState === "place2") {
         $(this).addClass("place");
         $(this).next().addClass("place");
+      } else if (gameState === "place2vert") {
+        $(this).addClass("place");
+        $(this).closest('tr').next().find(`.${myClass}`).addClass("place");
       } else if (gameState === "place4") {
         $(this).addClass("place");
         $(this).next().addClass("place");
         $(this).next().next().addClass("place");
         $(this).next().next().next().addClass("place");
+      } else if (gameState === "place4vert") {
+        $(this).addClass("place");
+        $(this).closest('tr').next().find(`.${myClass}`).addClass("place");
+        $(this).closest('tr').next().next().find(`.${myClass}`).addClass("place");
+        $(this).closest('tr').next().next().next().find(`.${myClass}`).addClass("place");
       } else if (gameState === "place5") {
         $(this).addClass("place");
         $(this).next().addClass("place");
         $(this).next().next().addClass("place");
         $(this).next().next().next().addClass("place");
         $(this).next().next().next().next().addClass("place");
+      } else if (gameState === "place5vert") {
+        $(this).addClass("place");
+        $(this).closest('tr').next().find(`.${myClass}`).addClass("place");
+        $(this).closest('tr').next().next().find(`.${myClass}`).addClass("place");
+        $(this).closest('tr').next().next().next().find(`.${myClass}`).addClass("place");
+        $(this).closest('tr').next().next().next().next().find(`.${myClass}`).addClass("place");
       } else if (gameState === "place6") {
         $(this).addClass("place");
         $(this).next().addClass("place");
@@ -228,6 +241,13 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
         $(this).next().next().next().addClass("place");
         $(this).next().next().next().next().addClass("place");
         $(this).next().next().next().next().next().addClass("place");
+      } else if (gameState === "place6vert") {
+        $(this).addClass("place");
+        $(this).closest('tr').next().find(`.${myClass}`).addClass("place");
+        $(this).closest('tr').next().next().find(`.${myClass}`).addClass("place");
+        $(this).closest('tr').next().next().next().find(`.${myClass}`).addClass("place");
+        $(this).closest('tr').next().next().next().next().find(`.${myClass}`).addClass("place");
+        $(this).closest('tr').next().next().next().next().next().find(`.${myClass}`).addClass("place");
       }
     });
 
