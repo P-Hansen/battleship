@@ -279,15 +279,34 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
   
 $(".playerBoard").bind("wheel", (event)=>{
   event.preventDefault();
-  if (gameState === "place3") {
+
+  if (gameState === "place2") {
+    gameState = "place2vert";
+  } else if (gameState === "place2vert") {
+    gameState = "place2";
+
+  } else if (gameState === "place3") {
     gameState = "place3vert";
-    console.log(gameState);
-    $("td").removeClass("place");
   } else if (gameState === "place3vert") {
     gameState = "place3";
-    console.log(gameState);
-    $("td").removeClass("place");
+
+  } else if (gameState === "place4") {
+    gameState = "place4vert";
+  } else if (gameState === "place4vert") {
+    gameState = "place4";
+    
+  } else if (gameState === "place5") {
+    gameState = "place5vert";
+  } else if (gameState === "place5vert") {
+    gameState = "place5";
+    
+  } else if (gameState === "place6") {
+    gameState = "place6vert";
+  } else if (gameState === "place6vert") {
+    gameState = "place6";
+    
   }
+  $("td").removeClass("place");
 });
 
 
