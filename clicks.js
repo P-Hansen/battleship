@@ -17,9 +17,9 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
   //click handler for player grid during the game
   $(".playerBoard td").on("click", function(event) {
     if (gameState === "place3" &
-    ($(this).html() === threeWord[0] || $(this).html() === "") &
-    ($(this).next().html() === threeWord[1] || $(this).next().html() === "") &
-    ($(this).next().next().html() === threeWord[2] || $(this).next().next().html() === "")
+      ($(this).html() === threeWord[0] || $(this).html() === "") &
+      ($(this).next().html() === threeWord[1] || $(this).next().html() === "") &
+      ($(this).next().next().html() === threeWord[2] || $(this).next().next().html() === "")
     ) {
 
       let col = $(this).attr("class")[0];
@@ -41,7 +41,10 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).next().next().addClass("placed");
 
       gameState = null;
-    } else if (gameState === "place2") {
+    } else if (gameState === "place2" &
+      ($(this).html() === twoWord[0] || $(this).html() === "") &
+      ($(this).next().html() === twoWord[1] || $(this).next().html() === "")
+    ) {
       let col = $(this).attr("class")[0];
       let row = $(this).parent().attr("class");
       
@@ -56,7 +59,12 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).next().addClass("placed");
 
       gameState = null;
-    } else if (gameState === "place4") {
+    } else if (gameState === "place4" &
+      ($(this).html() === fourWord[0] || $(this).html() === "") &
+      ($(this).next().html() === fourWord[1] || $(this).next().html() === "") &
+      ($(this).next().next().html() === fourWord[2] || $(this).next().next().html() === "") &
+      ($(this).next().next().next().html() === fourWord[3] || $(this).next().next().next().html() === "")
+    ) {
       let col = $(this).attr("class")[0];
       let row = $(this).parent().attr("class");
       
@@ -81,7 +89,13 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).next().next().next().addClass("placed");
 
       gameState = null;
-    } else if (gameState === "place5") {
+    } else if (gameState === "place5" &
+      ($(this).html() === fiveWord[0] || $(this).html() === "") &
+      ($(this).next().html() === fiveWord[1] || $(this).next().html() === "") &
+      ($(this).next().next().html() === fiveWord[2] || $(this).next().next().html() === "") &
+      ($(this).next().next().next().html() === fiveWord[3] || $(this).next().next().next().html() === "") &
+      ($(this).next().next().next().next().html() === fiveWord[4] || $(this).next().next().next().next().html() === "")
+    ) {
       let col = $(this).attr("class")[0];
       let row = $(this).parent().attr("class");
 
@@ -111,7 +125,14 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).next().next().next().next().addClass("placed");
 
       gameState = null;
-    } else if (gameState === "place6") {
+    } else if (gameState === "place6" &
+      ($(this).html() === sixWord[0] || $(this).html() === "") &
+      ($(this).next().html() === sixWord[1] || $(this).next().html() === "") &
+      ($(this).next().next().html() === sixWord[2] || $(this).next().next().html() === "") &
+      ($(this).next().next().next().html() === sixWord[3] || $(this).next().next().next().html() === "") &
+      ($(this).next().next().next().next().html() === sixWord[4] || $(this).next().next().next().next().html() === "") &
+      ($(this).next().next().next().next().next().html() === sixWord[5] || $(this).next().next().next().next().next().html() === "")
+    ) {
       let col = $(this).attr("class")[0];
       let row = $(this).parent().attr("class");
 
