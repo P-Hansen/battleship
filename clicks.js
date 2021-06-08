@@ -66,6 +66,7 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).closest('tr').next().next().find(`.${myClass}`).addClass("placed");
       gameState = null;
 
+      //horizontal 2 letter word placement
     } else if (gameState === "place2" &
       ($(this).html() === twoWord[0] || $(this).html() === "") &
       ($(this).next().html() === twoWord[1] || $(this).next().html() === "")
@@ -84,6 +85,24 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).next().addClass("placed");
 
       gameState = null;
+      //vertical 2 letter word placement
+    } else if (gameState === "place2vert" &
+    ($(this).html() === twoWord[0] || $(this).html() === "") &
+    ($(this).closest('tr').next().find(`.${myClass}`).html() === twoWord[1] || $(this).closest('tr').next().find(`.${myClass}`).html() === "")
+    ) {
+      let col = myClass;
+      let row = $(this).parent().attr("class");
+      
+      board[col+(row+1)] = twoWord[1];
+      $(this).closest('tr').next().find(`.${myClass}`).text(twoWord[1]);
+
+      board[col+row] = twoWord[0];
+      $(this).text(twoWord[0]);
+      
+      $(this).addClass("placed");
+      $(this).closest('tr').next().find(`.${myClass}`).addClass("placed");
+      gameState = null;
+      //horizontal 4 letter word placement
     } else if (gameState === "place4" &
       ($(this).html() === fourWord[0] || $(this).html() === "") &
       ($(this).next().html() === fourWord[1] || $(this).next().html() === "") &
@@ -114,6 +133,34 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).next().next().next().addClass("placed");
 
       gameState = null;
+      //vertical 4 letter word placement
+    }  else if (gameState === "place4vert" &
+      ($(this).html() === fourWord[0] || $(this).html() === "") &
+      ($(this).closest('tr').next().find(`.${myClass}`).html() === fourWord[1] || $(this).closest('tr').next().find(`.${myClass}`).html() === "") &
+      ($(this).closest('tr').next().next().find(`.${myClass}`).html() === fourWord[2] || $(this).closest('tr').next().next().find(`.${myClass}`).html() === "") &
+      ($(this).closest('tr').next().next().next().find(`.${myClass}`).html() === fourWord[3] || $(this).closest('tr').next().next().next().find(`.${myClass}`).html() === "")
+    ) {
+    let col = myClass;
+    let row = $(this).parent().attr("class");
+
+    board[col+(row+3)] = fourWord[3];
+    $(this).closest('tr').next().next().next().find(`.${myClass}`).text(fourWord[3]);
+
+    board[col+(row+2)] = fourWord[2];
+    $(this).closest('tr').next().next().find(`.${myClass}`).text(fourWord[2]);
+    
+    board[col+(row+1)] = fourWord[1];
+    $(this).closest('tr').next().find(`.${myClass}`).text(fourWord[1]);
+
+    board[col+row] = fourWord[0];
+    $(this).text(fourWord[0]);
+    
+    $(this).addClass("placed");
+    $(this).closest('tr').next().find(`.${myClass}`).addClass("placed");
+    $(this).closest('tr').next().next().find(`.${myClass}`).addClass("placed");
+    $(this).closest('tr').next().next().next().find(`.${myClass}`).addClass("placed");
+    gameState = null;
+      //horizontal 5 word placement
     } else if (gameState === "place5" &
       ($(this).html() === fiveWord[0] || $(this).html() === "") &
       ($(this).next().html() === fiveWord[1] || $(this).next().html() === "") &
@@ -150,6 +197,39 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).next().next().next().next().addClass("placed");
 
       gameState = null;
+      //vertical 5 word placement
+    } else if (gameState === "place5vert" &
+      ($(this).html() === fiveWord[0] || $(this).html() === "") &
+      ($(this).closest('tr').next().find(`.${myClass}`).html() === fiveWord[1] || $(this).closest('tr').next().find(`.${myClass}`).html() === "") &
+      ($(this).closest('tr').next().next().find(`.${myClass}`).html() === fiveWord[2] || $(this).closest('tr').next().next().find(`.${myClass}`).html() === "") &
+      ($(this).closest('tr').next().next().next().find(`.${myClass}`).html() === fiveWord[3] || $(this).closest('tr').next().next().next().find(`.${myClass}`).html() === "") &
+      ($(this).closest('tr').next().next().next().next().find(`.${myClass}`).html() === fiveWord[4] || $(this).closest('tr').next().next().next().next().find(`.${myClass}`).html() === "")
+    ) {
+    let col = myClass;
+    let row = $(this).parent().attr("class");
+
+    board[col+(row+4)] = fiveWord[4];
+    $(this).closest('tr').next().next().next().next().find(`.${myClass}`).text(fiveWord[4]);
+
+    board[col+(row+3)] = fiveWord[3];
+    $(this).closest('tr').next().next().next().find(`.${myClass}`).text(fiveWord[3]);
+
+    board[col+(row+2)] = fiveWord[2];
+    $(this).closest('tr').next().next().find(`.${myClass}`).text(fiveWord[2]);
+    
+    board[col+(row+1)] = fiveWord[1];
+    $(this).closest('tr').next().find(`.${myClass}`).text(fiveWord[1]);
+
+    board[col+row] = fiveWord[0];
+    $(this).text(fiveWord[0]);
+    
+    $(this).addClass("placed");
+    $(this).closest('tr').next().find(`.${myClass}`).addClass("placed");
+    $(this).closest('tr').next().next().find(`.${myClass}`).addClass("placed");
+    $(this).closest('tr').next().next().next().find(`.${myClass}`).addClass("placed");
+    $(this).closest('tr').next().next().next().next().find(`.${myClass}`).addClass("placed");
+    gameState = null;
+      //horizontal 6 word placement
     } else if (gameState === "place6" &
       ($(this).html() === sixWord[0] || $(this).html() === "") &
       ($(this).next().html() === sixWord[1] || $(this).next().html() === "") &
@@ -192,7 +272,45 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).next().next().next().next().next().addClass("placed");
 
       gameState = null;
-    }
+      //vertical 6 word placement
+    } else if (gameState === "place6vert" &
+      ($(this).html() === sixWord[0] || $(this).html() === "") &
+      ($(this).closest('tr').next().find(`.${myClass}`).html() === sixWord[1] || $(this).closest('tr').next().find(`.${myClass}`).html() === "") &
+      ($(this).closest('tr').next().next().find(`.${myClass}`).html() === sixWord[2] || $(this).closest('tr').next().next().find(`.${myClass}`).html() === "") &
+      ($(this).closest('tr').next().next().next().find(`.${myClass}`).html() === sixWord[3] || $(this).closest('tr').next().next().next().find(`.${myClass}`).html() === "") &
+      ($(this).closest('tr').next().next().next().next().find(`.${myClass}`).html() === sixWord[4] || $(this).closest('tr').next().next().next().next().find(`.${myClass}`).html() === "") &
+      ($(this).closest('tr').next().next().next().next().next().find(`.${myClass}`).html() === sixWord[5] || $(this).closest('tr').next().next().next().next().next().find(`.${myClass}`).html() === "")
+    ) {
+    let col = myClass;
+    let row = $(this).parent().attr("class");
+
+    board[col+(row+5)] = sixWord[5];
+    $(this).closest('tr').next().next().next().next().next().find(`.${myClass}`).text(sixWord[5]);
+
+    board[col+(row+4)] = sixWord[4];
+    $(this).closest('tr').next().next().next().next().find(`.${myClass}`).text(sixWord[4]);
+
+    board[col+(row+3)] = sixWord[3];
+    $(this).closest('tr').next().next().next().find(`.${myClass}`).text(sixWord[3]);
+
+    board[col+(row+2)] = sixWord[2];
+    $(this).closest('tr').next().next().find(`.${myClass}`).text(sixWord[2]);
+    
+    board[col+(row+1)] = sixWord[1];
+    $(this).closest('tr').next().find(`.${myClass}`).text(sixWord[1]);
+
+    board[col+row] = sixWord[0];
+    $(this).text(sixWord[0]);
+    
+    $(this).addClass("placed");
+    $(this).closest('tr').next().find(`.${myClass}`).addClass("placed");
+    $(this).closest('tr').next().next().find(`.${myClass}`).addClass("placed");
+    $(this).closest('tr').next().next().next().find(`.${myClass}`).addClass("placed");
+    $(this).closest('tr').next().next().next().next().find(`.${myClass}`).addClass("placed");
+    $(this).closest('tr').next().next().next().next().next().find(`.${myClass}`).addClass("placed");
+    gameState = null;
+
+    } 
   });
 
     //adds yellow when you have ship selected and enter a square
