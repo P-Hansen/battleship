@@ -16,7 +16,12 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
 
   //click handler for player grid during the game
   $(".playerBoard td").on("click", function(event) {
-    if (gameState === "place3") {
+    if (gameState === "place3" &
+    ($(this).html() === threeWord[0] || $(this).html() === "") &
+    ($(this).next().html() === threeWord[1] || $(this).next().html() === "") &
+    ($(this).next().next().html() === threeWord[2] || $(this).next().next().html() === "")
+    ) {
+
       let col = $(this).attr("class")[0];
       let row = $(this).parent().attr("class");
       
