@@ -21,7 +21,7 @@ const enemyFireLocation = () => {
     return [col, row];
 };
 
-//compares two arrays to see if they are the same
+//compares two arrays (locations) to see if they are the same
 const checker = ([a,b], [c,d]) => {
     if (a === c & b === d) {
         return true;
