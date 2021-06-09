@@ -195,8 +195,8 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $(this).next().next().addClass("placed");
       $(this).next().next().next().addClass("placed");
       $(this).next().next().next().next().addClass("placed");
-
       gameState = null;
+
       //vertical 5 word placement
     } else if (gameState === "place5vert" &
       ($(this).html() === fiveWord[0] || $(this).html() === "") &
@@ -378,43 +378,49 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
   $("#2-letter").on("click", function(event) {
     gameState = "place2";
     console.log("placing 2 letter word");
-    $(this).remove();
+    $(this).hide();
     });
 
   //click 3 letter word
   $("#3-letter").on("click", function(event) {
     gameState = "place3";
     console.log("placing 3 letter word");
-    $(this).remove();
+    $(this).hide();
     });
 
   //click 4 letter word
   $("#4-letter").on("click", function(event) {
     gameState = "place4";
     console.log("placing 4 letter word");
-    $(this).remove();
+    $(this).hide();
     });
 
     //click 5 letter word
   $("#5-letter").on("click", function(event) {
     gameState = "place5";
     console.log("placing 5 letter word");
-    $(this).remove();
+    $(this).hide();
     });
 
     //click 6 letter word
   $("#6-letter").on("click", function(event) {
     gameState = "place6";
     console.log("placing 6 letter word");
-    $(this).remove();
+    $(this).hide();
     });
 
-  document.body.onkeyup = function(e){
-    if(e.key === ' '){
-        console.log("space!");
-    }
-  }
-  
+//right click unselects word
+$(".playerBoard").contextmenu(function(event) {
+  console.log(gameState);
+  if (gameState === "place2" || "place2vert") $("#2-letter").show();
+  if (gameState === "place3" || "place3vert") $("#3-letter").show();
+  if (gameState === "place4" || "place4vert") $("#4-letter").show();
+  if (gameState === "place5" || "place5vert") $("#5-letter").show();
+  if (gameState === "place6" || "place6vert") $("#6-letter").show();
+  gameState = null;
+  return false;
+});
+
 //toggles horizontal/vertical placement state by mouse wheel
 $(".playerBoard").bind("wheel", (event)=>{
   event.preventDefault();
