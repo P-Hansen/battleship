@@ -417,6 +417,7 @@ $(".playerBoard").contextmenu(function(event) {
   if (gameState === "place4" || gameState === "place4vert") {$("#4-letter").show();}
   if (gameState === "place5" || gameState === "place5vert") {$("#5-letter").show();}
   if (gameState === "place6" || gameState === "place6vert") {$("#6-letter").show();}
+  $("td").removeClass("place");
   gameState = null;
   return false;
 });
