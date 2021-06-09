@@ -52,10 +52,10 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       let col = myClass;
       let row = $(this).parent().attr("class");
 
-      board[col+(row+2)] = threeWord[2];
-      $(this).closest('tr').next().next().find(`.${myClass}`).text(threeWord[2]);
+      board[col+(parseInt(row)+2)] = threeWord[2];
+       $(this).closest('tr').next().next().find(`.${myClass}`).text(threeWord[2]);
       
-      board[col+(row+1)] = threeWord[1];
+      board[col+(parseInt(row)+1)] = threeWord[1];
       $(this).closest('tr').next().find(`.${myClass}`).text(threeWord[1]);
 
       board[col+row] = threeWord[0];
@@ -93,7 +93,7 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       let col = myClass;
       let row = $(this).parent().attr("class");
       
-      board[col+(row+1)] = twoWord[1];
+      board[col+(parseInt(row)+1)] = twoWord[1];
       $(this).closest('tr').next().find(`.${myClass}`).text(twoWord[1]);
 
       board[col+row] = twoWord[0];
@@ -143,13 +143,13 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
     let col = myClass;
     let row = $(this).parent().attr("class");
 
-    board[col+(row+3)] = fourWord[3];
+    board[col+(parseInt(row)+3)] = fourWord[3];
     $(this).closest('tr').next().next().next().find(`.${myClass}`).text(fourWord[3]);
 
-    board[col+(row+2)] = fourWord[2];
+    board[col+(parseInt(row)+2)] = fourWord[2];
     $(this).closest('tr').next().next().find(`.${myClass}`).text(fourWord[2]);
     
-    board[col+(row+1)] = fourWord[1];
+    board[col+(parseInt(row)+1)] = fourWord[1];
     $(this).closest('tr').next().find(`.${myClass}`).text(fourWord[1]);
 
     board[col+row] = fourWord[0];
@@ -208,16 +208,16 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
     let col = myClass;
     let row = $(this).parent().attr("class");
 
-    board[col+(row+4)] = fiveWord[4];
+    board[col+(parseInt(row)+4)] = fiveWord[4];
     $(this).closest('tr').next().next().next().next().find(`.${myClass}`).text(fiveWord[4]);
 
-    board[col+(row+3)] = fiveWord[3];
+    board[col+(parseInt(row)+3)] = fiveWord[3];
     $(this).closest('tr').next().next().next().find(`.${myClass}`).text(fiveWord[3]);
 
-    board[col+(row+2)] = fiveWord[2];
+    board[col+(parseInt(row)+2)] = fiveWord[2];
     $(this).closest('tr').next().next().find(`.${myClass}`).text(fiveWord[2]);
     
-    board[col+(row+1)] = fiveWord[1];
+    board[col+(parseInt(row)+1)] = fiveWord[1];
     $(this).closest('tr').next().find(`.${myClass}`).text(fiveWord[1]);
 
     board[col+row] = fiveWord[0];
@@ -284,19 +284,19 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
     let col = myClass;
     let row = $(this).parent().attr("class");
 
-    board[col+(row+5)] = sixWord[5];
+    board[col+(parseInt(row)+5)] = sixWord[5];
     $(this).closest('tr').next().next().next().next().next().find(`.${myClass}`).text(sixWord[5]);
 
-    board[col+(row+4)] = sixWord[4];
+    board[col+(parseInt(row)+4)] = sixWord[4];
     $(this).closest('tr').next().next().next().next().find(`.${myClass}`).text(sixWord[4]);
 
-    board[col+(row+3)] = sixWord[3];
+    board[col+(parseInt(row)+3)] = sixWord[3];
     $(this).closest('tr').next().next().next().find(`.${myClass}`).text(sixWord[3]);
 
-    board[col+(row+2)] = sixWord[2];
+    board[col+(parseInt(row)+2)] = sixWord[2];
     $(this).closest('tr').next().next().find(`.${myClass}`).text(sixWord[2]);
     
-    board[col+(row+1)] = sixWord[1];
+    board[col+(parseInt(row)+1)] = sixWord[1];
     $(this).closest('tr').next().find(`.${myClass}`).text(sixWord[1]);
 
     board[col+row] = sixWord[0];
