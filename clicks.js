@@ -447,11 +447,11 @@ $(".playerBoard").bind("wheel", (event)=>{
   //click handler for enemy grid during the game
   $(".enemyBoard td").on("click", function(event) {
     if (gameState === null &
-      !$("#2-letter").length &
-      !$("#3-letter").length &
-      !$("#4-letter").length &
-      !$("#5-letter").length &
-      !$("#6-letter").length) {
+      $("#2-letter").is(":hidden") &
+      $("#3-letter").is(":hidden") &
+      $("#4-letter").is(":hidden") &
+      $("#5-letter").is(":hidden") &
+      $("#6-letter").is(":hidden")) {
       let col = $(this).attr("class")[0];
       let row = $(this).parent().attr("class");
       if (enemyBoard[col+row] === '~') {
