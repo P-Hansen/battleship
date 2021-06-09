@@ -412,11 +412,11 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
 //right click unselects word
 $(".playerBoard").contextmenu(function(event) {
   console.log(gameState);
-  if (gameState === "place2" || "place2vert") $("#2-letter").show();
-  if (gameState === "place3" || "place3vert") $("#3-letter").show();
-  if (gameState === "place4" || "place4vert") $("#4-letter").show();
-  if (gameState === "place5" || "place5vert") $("#5-letter").show();
-  if (gameState === "place6" || "place6vert") $("#6-letter").show();
+  if (gameState === "place2" || gameState === "place2vert") {$("#2-letter").show();}
+  if (gameState === "place3" || gameState === "place3vert") {$("#3-letter").show();}
+  if (gameState === "place4" || gameState === "place4vert") {$("#4-letter").show();}
+  if (gameState === "place5" || gameState === "place5vert") {$("#5-letter").show();}
+  if (gameState === "place6" || gameState === "place6vert") {$("#6-letter").show();}
   gameState = null;
   return false;
 });
