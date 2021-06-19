@@ -2,12 +2,8 @@
 const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, fiveWord, sixWord) {
   let gameState = null;
   console.log("I'm listening")
-  // const twoWord = "OI";
-  // const threeWord = "SUB";
-  // const fourWord = "SHIP";
-  // const fiveWord = "BILGE";
-  // const sixWord = "ANCHOR";
 
+  //dynamicly add words to the dom
   $("#2-letter").html(`<table id="2-letter"><tr><td>${twoWord[0]}</td><td>${twoWord[1]}</td></tr></table>`);
   $("#3-letter").html(`<table id="3-letter"><tr><td>${threeWord[0]}</td><td>${threeWord[1]}</td><td>${threeWord[2]}</td></tr></table>`);
   $("#4-letter").html(`<table id="4-letter"><tr><td>${fourWord[0]}</td><td>${fourWord[1]}</td><td>${fourWord[2]}</td><td>${fourWord[3]}</td></tr></table>`);
