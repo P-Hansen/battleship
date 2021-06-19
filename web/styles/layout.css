@@ -43,6 +43,7 @@ td {
 .controls {
     display: flex;
     align-items: flex-end;
+    flex-direction: column;
     /* justify-content: center; */
     /* align-content: center; */
     /* justify-items: center; */
