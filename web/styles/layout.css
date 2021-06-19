@@ -51,6 +51,10 @@ td {
     flex-direction: row;
 }
 
+.words{
+    margin-left: 20px;
+}
+
 .hit {
     background-color: tomato !important;
 }
