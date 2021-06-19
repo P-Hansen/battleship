@@ -35,6 +35,23 @@ td {
     background-color: greenyellow;
 }
 
+.enemyBoard-controls {
+    display: flex;
+    flex-direction: row;
+}
+
+.controls {
+    display: flex;
+    align-items: flex-end;
+    /* justify-content: center; */
+    /* align-content: center; */
+    /* justify-items: center; */
+}
+
+.controls img {
+    height: 150px;
+}
+
 .playerBoard td {
     width: 35px;
     height: 35px;
