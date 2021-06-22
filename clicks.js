@@ -372,37 +372,47 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
 
   //click 2 letter word
   $("#2-letter").on("click", function(event) {
-    gameState = "place2";
-    console.log("placing 2 letter word");
-    $(this).hide();
+    if (gameState === null) {
+      gameState = "place2";
+      console.log("placing 2 letter word");
+      $(this).hide();
+    }
     });
 
   //click 3 letter word
   $("#3-letter").on("click", function(event) {
-    gameState = "place3";
-    console.log("placing 3 letter word");
-    $(this).hide();
+    if (gameState === null) {
+      gameState = "place3";
+      console.log("placing 3 letter word");
+      $(this).hide();
+    }
     });
 
   //click 4 letter word
   $("#4-letter").on("click", function(event) {
-    gameState = "place4";
-    console.log("placing 4 letter word");
-    $(this).hide();
+    if (gameState === null) {
+      gameState = "place4";
+      console.log("placing 4 letter word");
+      $(this).hide();
+    }
     });
 
     //click 5 letter word
   $("#5-letter").on("click", function(event) {
-    gameState = "place5";
-    console.log("placing 5 letter word");
-    $(this).hide();
+    if (gameState === null) {
+      gameState = "place5";
+      console.log("placing 5 letter word");
+      $(this).hide();
+    }
     });
 
     //click 6 letter word
   $("#6-letter").on("click", function(event) {
-    gameState = "place6";
-    console.log("placing 6 letter word");
-    $(this).hide();
+      if (gameState === null) {
+      gameState = "place6";
+      console.log("placing 6 letter word");
+      $(this).hide();
+    }
     });
 
 //right click unselects word
