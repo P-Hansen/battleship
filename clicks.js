@@ -464,7 +464,13 @@ $(".playerBoard").bind("wheel", (event)=>{
       if (enemyBoard[col+row] === '~') {
         $(this).addClass("miss");
       } else {
+        //assign hits
         $(this).addClass("hit");
+        //check for victory
+        if ($(".enemyBoard").find(".hit").length >= 20) {
+          alert("You win!");
+          console.log("You win!", gameEnd);
+        }
       }
       $(this).text(enemyBoard[col+row]);
       enemyFire();
