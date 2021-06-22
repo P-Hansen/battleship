@@ -468,12 +468,16 @@ $(".playerBoard").bind("wheel", (event)=>{
         $(this).addClass("hit");
         //check for victory
         if ($(".enemyBoard").find(".hit").length >= 20) {
+          gameState = "win";
           alert("You Win!");
         }
       }
       $(this).text(enemyBoard[col+row]);
+      //enemy returns fire
       enemyFire();
+      //checks for loss
       if ($(".playerBoard").find(".hit").length >= 20) {
+        gameState = "loss";
         alert("You Lose!");
       }
     }
