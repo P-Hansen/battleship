@@ -17,8 +17,8 @@ git clone https://github.com/P-Hansen/battleship
 2. Navigate to the project directory and install dependencies.
 
 ```
-cd battleship
-npm install
+$ cd battleship
+$ npm install
 ```
 
 3. Open the index.html file in your browser.
