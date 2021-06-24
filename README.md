@@ -4,7 +4,7 @@ Created by: Philip Hansen
 
 Front end battleship app that uses words insted of ships. Place your words on the grid and try and find the ships placed by the computer.
 
-## Project Setup/ Getting Started
+## Project Setup / Getting Started
 
 The following steps are to install locally on your machine:
 
@@ -22,5 +22,16 @@ $ npm install
 ```
 
 3. Open the index.html file in your browser.
+
+## Screenshots
+
+!["GIF of Home/Login"](https://github.com/P-Hansen/battleship/blob/master/images/newGame.png?raw=true)
+
+!["GIF of Home/Login"](https://github.com/P-Hansen/battleship/blob/master/images/place.png?raw=true)
+
+!["GIF of Home/Login"](https://github.com/P-Hansen/battleship/blob/master/images/game.png?raw=true)
+
+<br>
+<br>
 
 Written in JavaScript with JQuery.
