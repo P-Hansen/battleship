@@ -1,10 +1,4 @@
 const randomPlacement = function(board, twoWord, threeWord, fourWord, fiveWord, sixWord) {
-    // const twoWord = "OI";
-    // const threeWord = "SUB";
-    // const fourWord = "SHIP";
-    // const fiveWord = "BILGE";
-    // const sixWord = "ANCHOR";
-
     //check if the space for the word is legal
     const spaceCheck = function(word, space) {
         if (word.length != space.length) return false;
@@ -25,7 +19,6 @@ const randomPlacement = function(board, twoWord, threeWord, fourWord, fiveWord, 
         for(let i = 0; i < word.length; i++) {
             space += (board[randomLetter+(randomNum+i)]);
         }
-        // if ((board[randomLetter+(randomNum+word.length)] === '~') & (board[randomLetter + randomNum] === '~')) {
         if (spaceCheck(word, space)) {
             console.log("good to go!");
             for(let i = 0; i < word.length; i++) {
@@ -48,7 +41,6 @@ const randomPlacement = function(board, twoWord, threeWord, fourWord, fiveWord, 
         for(let i = 0; i < word.length; i++) {
             space += board[leagalLetter[randIndex+i]+(randomNum)];
         }
-        // if ((board[leagalLetter[randIndex+word.length]+(randomNum)] === '~') & (board[randomLetter + randomNum] === '~')) {
         if (spaceCheck(word, space)) {
             console.log("good to go!");
             for(let i = 0; i < word.length; i++) {
@@ -67,5 +59,3 @@ const randomPlacement = function(board, twoWord, threeWord, fourWord, fiveWord, 
     Math.random() < 0.5 ? verticalPlacement(threeWord) : horizontalPlacement(threeWord);
     Math.random() < 0.5 ? verticalPlacement(twoWord) : horizontalPlacement(twoWord);
 }
-
-//module.exports = randomPlacement;

@@ -15,7 +15,6 @@ const enemyFireLocation = () => {
             };
         };
     };
-    
     usedCoordinates.push([col,row]);
     console.log("fire at", usedCoordinates);
     return [col, row];

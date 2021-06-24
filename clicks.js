@@ -1,9 +1,8 @@
-
 const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, fiveWord, sixWord) {
   let gameState = null;
   console.log("I'm listening")
 
-  //dynamicly add words to the dom
+  //dynamicly add words to the table in the DOM
   $("#2-letter").html(`<table id="2-letter"><tr><td>${twoWord[0]}</td><td>${twoWord[1]}</td></tr></table>`);
   $("#3-letter").html(`<table id="3-letter"><tr><td>${threeWord[0]}</td><td>${threeWord[1]}</td><td>${threeWord[2]}</td></tr></table>`);
   $("#4-letter").html(`<table id="4-letter"><tr><td>${fourWord[0]}</td><td>${fourWord[1]}</td><td>${fourWord[2]}</td><td>${fourWord[3]}</td></tr></table>`);
@@ -370,7 +369,7 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
       $("td").removeClass("place");
     });
 
-  //click 2 letter word
+  //clicking on 2 letter word to place it
   $("#2-letter").on("click", function(event) {
     if (gameState === null) {
       gameState = "place2";
@@ -379,7 +378,7 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
     }
     });
 
-  //click 3 letter word
+  //clicking on 3 letter word to place it
   $("#3-letter").on("click", function(event) {
     if (gameState === null) {
       gameState = "place3";
@@ -388,7 +387,7 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
     }
     });
 
-  //click 4 letter word
+  //clicking on 4 letter word to place it
   $("#4-letter").on("click", function(event) {
     if (gameState === null) {
       gameState = "place4";
@@ -397,7 +396,7 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
     }
     });
 
-    //click 5 letter word
+    //clicking on 5 letter word to place it
   $("#5-letter").on("click", function(event) {
     if (gameState === null) {
       gameState = "place5";
@@ -406,7 +405,7 @@ const userInput = function(board, enemyBoard, twoWord, threeWord, fourWord, five
     }
     });
 
-    //click 6 letter word
+    //clicking on 6 letter word to place it
   $("#6-letter").on("click", function(event) {
       if (gameState === null) {
       gameState = "place6";
@@ -449,10 +448,11 @@ $(".playerBoard").bind("wheel", (event)=>{
   $("td").removeClass("place");
 });
 
-
 /////////////////////////////////////////////////////////////////////
+
   //click handler for enemy grid during the game
   $(".enemyBoard td").on("click", function(event) {
+    //check if player has placed all their words
     if (gameState === null &
       $("#2-letter").is(":hidden") &
       $("#3-letter").is(":hidden") &
@@ -486,8 +486,10 @@ $(".playerBoard").bind("wheel", (event)=>{
   //enemy shots at player grid
   function enemyFire() {
     const [col, row] = enemyFireLocation();
+    //miss
     if (board[col+row] === '~') {
       $(".playerBoard").find(`.${row}`).find(`.${col}`).addClass("miss")
+    //hit
     } else {
       $(".playerBoard").find(`.${row}`).find(`.${col}`).removeClass("placed")
       $(".playerBoard").find(`.${row}`).find(`.${col}`).removeClass("place")
@@ -495,10 +497,7 @@ $(".playerBoard").bind("wheel", (event)=>{
       //adds adjacent squares as next targets
       addTargets([col, row]);
     }
+    //add letter from board class onto table
     $(".playerBoard").find(`.${row}`).find(`.${col}`).text(board[col+row]);
   }
-  
-
 };
-
-//module.exports = userInput;

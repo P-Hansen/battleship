@@ -1,7 +1,4 @@
-//const input = require('./input');
-//const userInput = require('./clicks');
-//const randomPlacement = require("./placeEnemies");
-
+//Board class for player/enemy board
 class Board {
     constructor() {
         let colNames = ['a','b','c','d','e','f','g','h','i','j'];
@@ -12,6 +9,7 @@ class Board {
             }
         }
     }
+    //print function from early command line implementation
     printBoard() {
         let colNames = ['a','b','c','d','e','f','g','h','i','j'];
         let rowNames = ['1','2','3','4','5','6','7','8','9','10'];
@@ -34,9 +32,11 @@ class Board {
 
 };
 
+//player and enemy board, mapped onto tables
 let playerBoard = new Board();
 let enemyBoard = new Board();
 
+//collection of possible random words player can receive
 const threeWords = ["SEA", "SUB", "AFT", "BOW", "YAW", "AYE", "FIN", "OAR", "RUM", "NET"]
 const threeWord = threeWords[Math.floor(Math.random() * threeWords.length)];
 
@@ -49,6 +49,7 @@ const fiveWord = fiveWords[Math.floor(Math.random() * fiveWords.length)];
 const sixWords = ["ANCHOR", "BRIDGE", "COURSE", "GALLEY", "LEAGUE", "RUDDER", "ABOARD", "ADRIFT", "AFLOAT", "ASHORE", "BATTEN", "BEACON", "CONVOY", "CRUISE", "ENSIGN", "ISLAND", "CANNON", "MARINA", "SAILOR", "PIRATE", "VOYAGE", "SEAMAN", "PARROT"]
 const sixWord = sixWords[Math.floor(Math.random() * sixWords.length)];
 
+//passing randomized words in
 $(document).ready(function() {
     userInput(playerBoard, enemyBoard, "OI", threeWord, fourWord, fiveWord, sixWord);
     randomPlacement(enemyBoard, "OI", threeWord, fourWord, fiveWord, sixWord);
