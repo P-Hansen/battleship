@@ -32,6 +32,5 @@ $ npm install
 !["GIF of Home/Login"](https://github.com/P-Hansen/battleship/blob/master/images/game.png?raw=true)
 
 <br>
-<br>
 
-Written in JavaScript with JQuery.
+Written in JavaScript, HTML/CSS with JQuery.
