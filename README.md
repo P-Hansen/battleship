@@ -25,11 +25,11 @@ $ npm install
 
 ## Screenshots
 
-!["GIF of Home/Login"](https://github.com/P-Hansen/battleship/blob/master/images/newGame.png?raw=true)
+!["New Game"](https://github.com/P-Hansen/battleship/blob/master/images/newGame.png?raw=true)
 
-!["GIF of Home/Login"](https://github.com/P-Hansen/battleship/blob/master/images/place.png?raw=true)
+!["Placed"](https://github.com/P-Hansen/battleship/blob/master/images/place.png?raw=true)
 
-!["GIF of Home/Login"](https://github.com/P-Hansen/battleship/blob/master/images/game.png?raw=true)
+!["Game"](https://github.com/P-Hansen/battleship/blob/master/images/game.png?raw=true)
 
 <br>
 
