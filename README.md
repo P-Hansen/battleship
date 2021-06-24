@@ -2,7 +2,7 @@
 
 Created by: Philip Hansen
 
-Front end battleship app that uses words insted of ships. Place your words on the grid and try and find the ships placed by the computer.
+Front end battleship app that uses words instead of ships. Place your words on the grid and try and find the ships placed by the computer.
 
 ## Project Setup / Getting Started
 
